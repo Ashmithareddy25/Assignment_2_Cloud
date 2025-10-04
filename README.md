@@ -116,7 +116,27 @@ Document3 more text to test similarity
 (ds2.txt, ds1.txt)	-> 0.03
 (ds3.txt, ds1.txt)	-> 0.01
 (ds3.txt, ds2.txt)	-> 0.29
+
 ```
+
+## 🧠 Observation: 1 Data Node vs 3 Data Nodes Execution
+
+When the program was executed with **one data node**, all the processing took place on a single machine. This caused higher execution time because there was **no parallelism** — the node had to handle both computation and data I/O alone.
+
+When the same job was executed with **three data nodes**, the input data was **distributed across multiple nodes**, allowing tasks to run in parallel. This led to a **significant reduction in total execution time** and improved cluster efficiency.
+
+However, the improvement was not fully linear. Some **network and coordination overhead** occurred due to data shuffling and synchronization among nodes. Despite this, the **three-node setup clearly outperformed** the single-node execution, showing better scalability and resource utilization.
+
+### ⚙️ Performance Comparison
+
+| Configuration | Execution Time | Observation Summary |
+|----------------|----------------|----------------------|
+| **1 Data Node** | X seconds | Single node processed all data — slower due to limited parallelism. |
+| **3 Data Nodes** | Y seconds | Parallel processing improved speed and efficiency across the cluster. |
+
+> **Conclusion:**  
+> Increasing the number of data nodes enhances performance by enabling distributed computation. However, efficiency gains depend on data size, cluster communication, and system overhead.
+
 
 
 
